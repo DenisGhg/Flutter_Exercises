@@ -73,7 +73,7 @@ class GestionTaches extends StatelessWidget {
                     shrinkWrap: true,
                     itemCount: taskProvider.taskList.length,
                     itemBuilder: (context, index){
-                      return ModelTask(taskName: taskProvider.taskList[index], index: index,);
+                      return ModelTask(title: taskProvider.taskList[index], index: index,);
                     },
                   );
                 },

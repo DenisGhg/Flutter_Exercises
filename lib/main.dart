@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:training_proj/pages/gestionTaches.dart';
 import 'package:training_proj/pages/homePage.dart';
+import 'package:training_proj/pages/task_gestion.dart';
 
 void main() {
   runApp(
@@ -16,6 +17,9 @@ void main() {
 
         // Theme
         ChangeNotifierProvider(create: (BuildContext context) => BrightnessProvider()),
+
+        // Gestion de tâches avancée
+        ChangeNotifierProvider(create: (BuildContext context) => TasksProvider()),
       ],
       child: const MyApp(),
     ),
@@ -38,7 +42,7 @@ class MyApp extends StatelessWidget {
 
         ),
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: TaskGestion(),
       );
     });
   }
