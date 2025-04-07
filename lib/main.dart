@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:training_proj/pages/counter_par_bon_page.dart';
 import 'package:training_proj/pages/gestionTaches.dart';
 import 'package:training_proj/pages/homePage.dart';
 import 'package:training_proj/pages/task_gestion.dart';
@@ -20,6 +21,9 @@ void main() {
 
         // Gestion de tâches avancée
         ChangeNotifierProvider(create: (BuildContext context) => TasksProvider()),
+
+        // Compteur avec bon
+        ChangeNotifierProvider(create: (BuildContext context) => CounterBonProvider()),
       ],
       child: const MyApp(),
     ),
@@ -42,7 +46,7 @@ class MyApp extends StatelessWidget {
 
         ),
         debugShowCheckedModeBanner: false,
-        home: TaskGestion(),
+        home: CounterParBonPage(),
       );
     });
   }
