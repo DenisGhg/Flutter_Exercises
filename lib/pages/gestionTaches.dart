@@ -1,34 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:training_proj/modelsUI/modelTask.dart';
-// Etat task
-class TaskProvider with ChangeNotifier{
-  List<String> taskList = [];
+import '../providers/brightness_provider.dart';
+import '../providers/task_simple_provider.dart';
 
-  void addTask(String task){
-    if(task.isNotEmpty){
-      taskList.add(task);
-      notifyListeners();
-    }
-  }
-
-  void removeTask(int index){
-    taskList.removeAt(index);
-    notifyListeners();
-  }
-}
-
-// Etat theme
-class BrightnessProvider with ChangeNotifier{
-  Brightness brightness = Brightness.light;
-
-  void changeTheme(){
-    brightness = (brightness == Brightness.light) ? Brightness.dark : Brightness.light;
-    notifyListeners();
-  }
-}
-
-//
 class GestionTaches extends StatelessWidget {
   GestionTaches({super.key});
 

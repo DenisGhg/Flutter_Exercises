@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:training_proj/pages/counter_par_bon_page.dart';
-import 'package:training_proj/pages/gestionTaches.dart';
 import 'package:training_proj/pages/homePage.dart';
-import 'package:training_proj/pages/task_gestion.dart';
+import 'package:training_proj/providers/brightness_provider.dart';
+import 'package:training_proj/providers/counter_par_bon_provider.dart';
+import 'package:training_proj/providers/task_simple_provider.dart';
+import 'package:training_proj/providers/tasks_provider.dart';
 
 void main() {
   runApp(

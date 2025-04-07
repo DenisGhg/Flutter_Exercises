@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:training_proj/pages/gestionTaches.dart';
 
-import '../models/task.dart';
+import '../providers/task_simple_provider.dart';
 
 class ModelTask extends StatelessWidget {
 
