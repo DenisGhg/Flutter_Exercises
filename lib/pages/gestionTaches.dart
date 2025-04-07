@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:training_proj/modelsUI/modelTask.dart';
+import 'package:training_proj/widgets/app_text.dart';
 import '../providers/brightness_provider.dart';
 import '../providers/task_simple_provider.dart';
 
@@ -21,10 +22,10 @@ class GestionTaches extends StatelessWidget {
           onPressed: (){
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_rounded, color: Colors.blue,),
+          icon: Icon(Icons.arrow_back_rounded, color: Colors.red,),
         ),
 
-        title: Text("Gestion de Tâche et changement de thème", style: TextStyle(fontSize: 11),),
+        title: AppText(text: "Gestion des tâches simples"),
 
         actions: [
           // Changer de thème

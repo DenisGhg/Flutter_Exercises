@@ -4,6 +4,7 @@ import 'package:training_proj/modelsUI/task_item.dart';
 
 import '../models/task.dart';
 import '../providers/tasks_provider.dart';
+import '../widgets/app_text.dart';
 
 class TaskGestion extends StatelessWidget {
   TaskGestion({super.key});
@@ -12,7 +13,19 @@ class TaskGestion extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      appBar: AppBar(title: Center(child: Text("Liste de tâches"))),
+
+      appBar: AppBar(
+        // Retour sur HomePage
+        leading: IconButton(
+          onPressed: (){
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios_sharp, color: Colors.red,),
+        ),
+
+        title: Center(child: AppText(text: "Gestion des tâches avancées")),
+      ),
+
       body: ListView.builder(
         itemCount: context.watch<TasksProvider>().tasks.length,
         itemBuilder: (context, index){

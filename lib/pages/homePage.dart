@@ -1,76 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:training_proj/pages/gestionTaches.dart';
-import 'package:training_proj/pages/testVariableGlob.dart';
-
-class CounterProvider with ChangeNotifier{
-
-  int counter = 0;
-
-  void increment(){
-    counter++;
-    notifyListeners();
-  }
-
-  void decrement(){
-    counter > 0 ?  counter-- : counter;
-    notifyListeners();
-  }
-}
-
-
+import 'package:training_proj/widgets/app_text.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  final List<String> exerciceTitles = [
+    "Counter Simple",
+    "Counter par bon",
+    "Gestion des tâches simples",
+    "Gestion des tâches avancées",
+  ];
+
+  final List<String> exerciceDescriptions = [
+    "Incrementation d'un counter avec provider",
+    "Incrementation d'un counter par une variable",
+    "Gestion des tâches avec une liste de string",
+    "Gestion de tâches avec options Supprimer et Modifier"
+  ];
+
+  final List<String> exerciceRouteName = [
+    '/counter',
+    '/gestionTacheSimples',
+    '/counterParBon',
+
+    '/gestionTachesAvancees',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
-        title: Center(child: Text("Counter With Provider")),
-        actions: [
-          IconButton(
-            onPressed: (){
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => GestionTaches()));
-            },
-            icon: Icon(Icons.navigate_next),
-          ),
-        ],
+        leading: Icon(Icons.model_training, color: Colors.green),
+        title: Center(child: AppText(text: "Exercices Flutter")),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
 
-        children: [
-          Center(child: Text("Nombre de Clic")),
-          Consumer<CounterProvider>(
-            builder: (context, counterProvider, child){
-              return Center(child: Text("${counterProvider.counter}", style: TextStyle(color: Colors.blue, fontSize: 20),));
-            },
-          ),
-        ],
-      ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Consumer<CounterProvider>(
-            builder: (context, counterProvider, child){
-              return IconButton(
-                  onPressed: counterProvider.increment,
-                  icon: Icon(Icons.add, color: Colors.green,),
-                );
-            },
-          ),
-          Consumer<CounterProvider>(
-            builder: (context, counterProvider, child){
-              return IconButton(
-                onPressed: counterProvider.decrement,
-                icon: Icon(Icons.remove, color: Colors.red,),
-              );
-            },
-          ),
-        ],
+      body: ListView.builder(
+        itemCount: exerciceTitles.length,
+        itemBuilder:(context, index){
+          return ListTile(
+            title: AppText(text: exerciceTitles[index]),
+            subtitle: AppText(text: exerciceDescriptions[index]),
+            trailing: GestureDetector(
+              onTap: (){
+                Navigator.pushNamed(context, exerciceRouteName[index]);
+              },
+              child: Container(
+                height: 20,
+                width: 100,
+                color: Colors.green,
+                child: AppText(text: "Ouvrir", color: Colors.white,),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
