@@ -9,21 +9,23 @@ class HomePage extends StatelessWidget {
     "Counter par bon",
     "Gestion des tâches simples",
     "Gestion des tâches avancées",
+    "API : randomuser.me",
   ];
 
   final List<String> exerciceDescriptions = [
     "Incrementation d'un counter avec provider",
     "Incrementation d'un counter par une variable",
     "Gestion des tâches avec une liste de string",
-    "Gestion de tâches avec options Supprimer et Modifier"
+    "Gestion de tâches avec options Supprimer et Modifier",
+    "Affichage de la liste et le profil des utilisateurs"
   ];
 
   final List<String> exerciceRouteName = [
     '/counter',
     '/gestionTacheSimples',
     '/counterParBon',
-
     '/gestionTachesAvancees',
+    '/userProfilWithRandomUserAPI',
   ];
 
   @override
@@ -32,6 +34,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         leading: Icon(Icons.model_training, color: Colors.green),
         title: Center(child: AppText(text: "Exercices Flutter")),
+        centerTitle: true,
       ),
 
       body: ListView.builder(
@@ -45,10 +48,14 @@ class HomePage extends StatelessWidget {
                 Navigator.pushNamed(context, exerciceRouteName[index]);
               },
               child: Container(
-                height: 20,
+                height: 40,
                 width: 100,
-                color: Colors.green,
-                child: AppText(text: "Ouvrir", color: Colors.white,),
+                padding: EdgeInsets.symmetric(vertical: 10),
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: AppText(text: "Ouvrir", color: Colors.white, textAlign: TextAlign.center,),
               ),
             ),
           );
