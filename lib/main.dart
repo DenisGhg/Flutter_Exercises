@@ -4,6 +4,7 @@ import 'package:training_proj/pages/counter_page.dart';
 import 'package:training_proj/pages/counter_par_bon_page.dart';
 import 'package:training_proj/pages/gestionTaches.dart';
 import 'package:training_proj/pages/homePage.dart';
+import 'package:training_proj/pages/query_laucher_page.dart';
 import 'package:training_proj/pages/task_gestion.dart';
 import 'package:training_proj/pages/user_profile_with_random_user_api.dart';
 import 'package:training_proj/providers/brightness_provider.dart';
@@ -61,6 +62,7 @@ class MyApp extends StatelessWidget {
           '/gestionTacheSimples' : (context) => GestionTaches(),
           '/gestionTachesAvancees' : (context) => TaskGestion(),
           '/userProfilWithRandomUserAPI' : (context) => UserProfileWithRandomUserApi(),
+          '/queryLauncherPage' : (context) => QueryLauncherPage()
         },
       );
     });

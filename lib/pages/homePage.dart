@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
     "Gestion des tâches simples",
     "Gestion des tâches avancées",
     "API : randomuser.me",
+    "Envoie de requête",
   ];
 
   final List<String> exerciceDescriptions = [
@@ -17,7 +18,8 @@ class HomePage extends StatelessWidget {
     "Incrementation d'un counter par une variable",
     "Gestion des tâches avec une liste de string",
     "Gestion de tâches avec options Supprimer et Modifier",
-    "Affichage de la liste et le profil des utilisateurs"
+    "Affichage de la liste et le profil des utilisateurs",
+    "Interface web pour lancer des reqêtes API",
   ];
 
   final List<String> exerciceRouteName = [
@@ -26,6 +28,7 @@ class HomePage extends StatelessWidget {
     '/counterParBon',
     '/gestionTachesAvancees',
     '/userProfilWithRandomUserAPI',
+    '/queryLauncherPage'
   ];
 
   @override
@@ -64,3 +67,18 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
+class HI extends StatefulWidget {
+  const HI({super.key});
+
+  @override
+  State<HI> createState() => _HIState();
+}
+
+class _HIState extends State<HI> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
